@@ -1,0 +1,341 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - GreenLand</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #10b981;
+            --primary-green-dark: #059669;
+            --light-gray: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --white: #ffffff;
+            --primary-green-light: #d1fae5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: var(--primary-green-dark);
+        }
+
+        .logo i {
+            font-size: 1.75rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            margin-top: 70px;
+        }
+
+        .signup-box {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .signup-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .signup-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .user-type-group {
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .checkbox-item input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .terms input {
+            width: auto;
+            margin-top: 3px;
+        }
+
+        .terms a {
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-signup {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, #34d399 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-secondary);
+        }
+
+        .login-link a {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .login-link a:hover {
+            color: var(--primary-green-dark);
+        }
+
+        @media (max-width: 480px) {
+            .signup-box {
+                padding: 30px 20px;
+            }
+
+            .signup-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{% url 'index' %}" class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>GreenLand</span>
+            </a>
+            <div class="nav-links">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'BuyerLogin' %}">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="signup-box">
+            <div class="signup-header">
+                <h1>Create Account</h1>
+                <p>Join GreenLand and revolutionize your land registration</p>
+            </div>
+
+            <form method="POST" action="{% url 'RegisterAction' %}">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="username">Full Name / Username</label>
+                    <input type="text" id="username" name="t1" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="t2" placeholder="Create password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" placeholder="Confirm password" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="t3" placeholder="+1 (555) 000-0000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="t4" placeholder="your@email.com" required>
+                </div>
+
+                <div class="user-type-group">
+                    <label style="margin-bottom: 12px;">Account Type</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="radio" id="buyer" name="t5" value="Buyer" required>
+                            <label for="buyer">Buyer</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="seller" name="t5" value="Seller" required>
+                            <label for="seller">Seller</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms" style="margin: 0;">
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-signup">Create Account</button>
+            </form>
+
+            <p class="login-link">
+                Already have an account? <a href="{% url 'BuyerLogin' %}">Sign in here</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
