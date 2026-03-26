@@ -1,0 +1,118 @@
+# ========================
+# 🔥 Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+myenv/
+
+# ========================
+# 📦 Node.js
+# ========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# 🧠 Jupyter / ML
+# ========================
+.ipynb_checkpoints
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# ========================
+# 📊 Data Files (Optional)
+# ========================
+*.csv
+*.xlsx
+*.xls
+Dataset/
+testTransactionData/
+
+# ========================
+# 🔐 Environment Variables
+# ========================
+.env
+.env.*
+
+# ========================
+# 🧪 Testing / Coverage
+# ========================
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+
+# ========================
+# 🧾 Logs
+# ========================
+*.log
+db.sqlite3
+
+# ========================
+# 🧰 Build / Distribution
+# ========================
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ========================
+# 🧱 Blockchain / IPFS
+# ========================
+.ipfs/
+ipfs-repo/
+ganache-cli/
+
+# ========================
+# 💻 IDE / Editor
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ========================
+# 🖥 OS Files
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# 🐍 Misc Python
+# ========================
+.Python
+pip-wheel-metadata/
+share/python-wheels/
+
+# ========================
+# 📁 Others (Safety)
+# ========================
+*.zip
+*.tar
+*.gz
+*.rar
+*.exe
+*.msi
+*.docx
+*.pdf
+*.jpg
+*.png
+*.mp4
